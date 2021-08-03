@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col-md-12">
+  
+  
+      <% flash.get('mensaje').forEach(function (msg) { %>
+      <div class="alert alert-success" role="alert">
+        <%=msg%>
+      </div>
+      <% }) %>
+  
+      <h2>Admin - Clientes</h2>
+
+      <div class="accordion" id="accordionExample">
+        <%let conteo = 1%>
+        <% clientes.forEach( cliente => { %>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="<%=`#act${conteo}`%>" aria-expanded="true" aria-controls="">
+                    <p class="espacio">
+                      <%=cliente.id+" "+cliente.nombre+" "+cliente.email%>
+                    </p>
+            </button>
+          </h2>
+          <div id="<%=`act${conteo}`%>" class="accordion-collapse collapse" aria-labelledby="" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <a type="button" class="btn btn-primary" href="/admin/cliente-activar/<%=cliente.id%>"><%=(cliente.estado? "Desactivar Usuario":"Activar Usuario")%></a>
+              
+              <br>
+              <br>
+              <ul class="list-group">
+              <% cliente.ordenes.forEach( orden =>{ %>
+                <a class="list-group-item" href="/admin/mis-clientes-orden/<%=orden.id%>"><p class="espacio"><%=orden.id+" "+orden.fecha+" Total ="+orden.total%></p></a>
+                <br>
+              <%})%>
+            </ul>
+            </div>
+          </div>
+        </div>
+        <%conteo++%>
+        <% }) %>
+  </div>
+   
+
+    </div>
+  
+  </div>

@@ -1,0 +1,37 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Total</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <% totales.forEach( total=> { %>
+            <tr>
+                <th scope="row">Clientes REgistrados</th>
+                <td>
+                    <%=total.total_clientes%>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Fotos Almacenadas</th>
+                <td>
+                    <%=total.total_fotos%>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Administradores Creados</th>
+                <td colspan="2">
+                    <%=total.total_admis%>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Ordenes Atendidas</th>
+                <td colspan="2">
+                    <%=total.total_ordenes%>
+                </td>
+            </tr>
+            <% }) %>
+    </tbody>
+</table>

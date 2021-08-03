@@ -1,0 +1,16 @@
+<div class="row">
+    <% detallesOrden.forEach( detalle=> { %>
+      <div class="col-md-3 my-2">
+        <div class="card">
+          <h5 class="card-header bg-info text-white">
+            <%=detalle.foto.id%>
+          </h5>
+          <div class="card-body">
+            <p class="card-text">
+              <img src="/images/fotos/<%=detalle.foto.contenido%>" alt="no carga" class="w-100">
+            </p>
+          </div>
+        </div>
+      </div>
+      <% }) %>
+  </div>
